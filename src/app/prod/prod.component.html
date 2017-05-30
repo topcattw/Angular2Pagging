@@ -1,0 +1,42 @@
+<div *ngIf="svcData.editMode==''">
+  <button (click)="svcData.editMode='AddNew'">新增</button>
+  <table class="table table-hover table-striped table-bordered">
+    <thead>
+      <tr class="info">
+        <th>功能</th>
+        <th>ProductID</th>
+        <th>ProductName</th>
+        <th>SupplierID</th>
+        <th>CategoryID</th>
+        <th>QuantityPerUnit</th>
+        <th>UnitPrice</th>
+        <th>UnitsInStock</th>
+        <th>UnitsOnOrder</th>
+        <th>ReorderLevel</th>
+        <th>Discontinued</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let oItem of svcData.datas">
+        <td>
+          <button type="button" (click)="svcData.doSetcurrentData(oItem)" class="btn">編</button>
+        </td>
+        <td>{{oItem.ProductID}}</td>
+        <td>{{oItem.ProductName}}</td>
+        <td>{{oItem.SupplierID}}</td>
+        <td>{{oItem.CategoryID}}</td>
+        <td>{{oItem.QuantityPerUnit}}</td>
+        <td>{{oItem.UnitPrice}}</td>
+        <td>{{oItem.UnitsInStock}}</td>
+        <td>{{oItem.UnitsOnOrder}}</td>
+        <td>{{oItem.ReorderLevel}}</td>
+        <td>
+            <input type="checkbox" [(ngModel)]="oItem.Discontinued">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+    <app-pagging></app-pagging>
+</div>
+
+
