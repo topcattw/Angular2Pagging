@@ -16,7 +16,7 @@ export class PaggingComponent implements OnInit {
 
   //設定第幾頁，透過queryParams傳遞第幾個分頁
   setPgNum(pgNum:number){
-    this.svcPagging.currentPageNum = pgNum;
+    this.svcPagging.pageObjs[0].currentPageNum = pgNum;
     this.router.navigate(['prod'],{queryParams:{pgNum:pgNum}});
   }
 
@@ -26,8 +26,8 @@ export class PaggingComponent implements OnInit {
       ['prod'],
       {
         queryParams:{
-          pgNum:this.svcPagging.currentPageNum,
-          pgSize:this.svcPagging.pageSize
+          pgNum:this.svcPagging.pageObjs[0].currentPageNum,
+          pgSize:this.svcPagging.pageObjs[0].pageSize
         }
       }
     );

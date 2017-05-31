@@ -18,13 +18,13 @@ export class ProdComponent implements OnInit {
   ngOnInit() {
    this.route.queryParams.subscribe((value)=>{
       if(value['pgNum']==null){
-        this.svcPagging.currentPageNum=1;
+        this.svcPagging.pageObjs[0].currentPageNum=1;
       }else{
-        this.svcPagging.currentPageNum=parseInt(value['pgNum']);
+        this.svcPagging.pageObjs[0].currentPageNum=parseInt(value['pgNum']);
       }
-      //console.log(this.svcPagging.currentPageNum);
+      //console.log(this.svcPagging.pageObjs[0].currentPageNum);
       if(value['pgSize']!=null){
-        this.svcPagging.pageSize = parseInt(value['pgSize']);
+        this.svcPagging.pageObjs[0].pageSize = parseInt(value['pgSize']);
       }
       this.svcData.GetDatasByPage();
     });

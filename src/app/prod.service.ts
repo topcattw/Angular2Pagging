@@ -18,7 +18,7 @@ export class ProdService {
   constructor(private http:Http, private svcPagging:PaggingService) { }
 
   GetDatasByPage(){
-    let url:string=this.serverName + 'api/prod/' + this.svcPagging.currentPageNum.toString() + '/' + this.svcPagging.pageSize.toString();
+    let url:string=this.serverName + 'api/prod/' + this.svcPagging.pageObjs[0].currentPageNum.toString() + '/' + this.svcPagging.pageObjs[0].pageSize.toString();
     let headers = new Headers({'Content-Type':'application/json'});
     let options = new RequestOptions({headers:headers});
 
@@ -28,8 +28,8 @@ export class ProdService {
         let jData:any;
         jData = value.json();
         this.datas = jData.oPages;
-        this.svcPagging.totalPage = jData.TotalPage;
-        this.svcPagging.set_pageNumArray();
+        this.svcPagging.pageObjs[0].totalPage = jData.TotalPage;
+        this.svcPagging.pageObjs[0].set_pageNumArray();
       },
       (error)=>{
         this.error = error;
