@@ -3,7 +3,8 @@ import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class ProdService {
+export class ShipperService {
+
 
   //API來源名稱
   serverName:string='http://localhost:54514/'
@@ -16,10 +17,11 @@ export class ProdService {
 
   pgObjIdx:number;
 
+
   constructor(private http:Http, private svcPagging:PaggingService) {
-    this.svcPagging.CreatePObj();
-    this.pgObjIdx=0;
+
   }
+
 
   GetDatasByPage(){
     let url:string=this.serverName + 'api/prod/' + this.svcPagging.pageObjs[this.pgObjIdx].currentPageNum.toString() + '/' + this.svcPagging.pageObjs[this.pgObjIdx].pageSize.toString();
@@ -40,7 +42,5 @@ export class ProdService {
       }
     );
   }
-
-
 
 }

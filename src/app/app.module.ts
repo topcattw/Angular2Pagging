@@ -1,3 +1,4 @@
+import { ShipperService } from './shipper.service';
 import { PaggingService } from './pagging.service';
 import { ProdService } from './prod.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,12 +11,14 @@ import { AppComponent } from './app.component';
 import { AlertModule } from 'ngx-bootstrap';
 import { ProdComponent } from './prod/prod.component';
 import { PaggingComponent } from './pagging/pagging.component';
+import { ShipperComponent } from './shipper/shipper.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProdComponent,
-    PaggingComponent
+    PaggingComponent,
+    ShipperComponent
   ],
   imports: [
     AlertModule.forRoot(),
@@ -24,7 +27,7 @@ import { PaggingComponent } from './pagging/pagging.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [ProdService, PaggingService],
+  providers: [ProdService, PaggingService, ShipperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

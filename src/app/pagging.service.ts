@@ -6,15 +6,14 @@ export class PaggingService {
 
   pageObjs:PaggingObj[]=[];
 
-  pObj:PaggingObj;
-
   constructor() {
-    this.pObj = new PaggingObj();
-    this.pageObjs.push(this.pObj);
   }
 
 
-
+  CreatePObj(){
+    let pObj:PaggingObj = new PaggingObj;
+    this.pageObjs.push(pObj);
+  }
 
 
 

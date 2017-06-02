@@ -1,6 +1,6 @@
 import { Router} from '@angular/router';
 import { PaggingService } from './../pagging.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-pagging',
@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pagging.component.css']
 })
 export class PaggingComponent implements OnInit {
+
+  @Input() pgObjIdx:number;
 
   constructor(private svcPagging:PaggingService,private router:Router) { }
 
